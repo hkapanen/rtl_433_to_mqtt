@@ -47,12 +47,12 @@ function handleThgrOrNexus(json) {
     log.warn('No instance mapping for rtl_433 ID', json.id)
     return
   }
-  mqttClient.publish(`/sensor/${instance}/t/state`, JSON.stringify({ instance, tag: 't', temperature: json.temperature_C, ts: new Date() }), { retain: true })
-  mqttClient.publish(`/sensor/${instance}/h/state`, JSON.stringify({ instance, tag: 'h', humidity: json.humidity, ts: new Date() }), { retain: true })
+  mqttClient.publish(`/sensor/${instance}/temp`, JSON.stringify({ temperature: json.temperature_C, ts: new Date() }), { retain: true })
+  mqttClient.publish(`/sensor/${instance}/rhum`, JSON.stringify({ humidity: json.humidity, ts: new Date() }), { retain: true })
 }
 
 function handleSwitchTransmitter(json) {
-  mqttClient.publish(`/switch/intertechno/${json.id.toLowerCase()}/${json.channel}/${json.button}/state`, json.state.toUpperCase(), { retain: true })
+  mqttClient.publish(`/switch/intertechno/${json.id.toLowerCase()}/${json.channel}/${json.button}`, json.state.toUpperCase(), { retain: true })
 }
 
 function startMqttClient(brokerUrl) {
