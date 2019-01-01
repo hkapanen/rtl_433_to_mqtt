@@ -3,14 +3,14 @@ const readline = require('readline')
 const log = require('winston')
 const mqtt = require('mqtt')
 
-const MQTT_BROKER = 'mqtt://hassio.local'
+const MQTT_BROKER = 'mqtt://192.168.0.186'
 
 const sensorToInstanceMap = {
-  8: ulkona,
-  9: olohuone,
-  66: vesimittari,
-  164: yläaula,
-  246: varasto
+  8: "ulkona",
+  9: "olohuone",
+  66: "vesimittari",
+  164: "yläaula",
+  246: "varasto"
 }
 
 startRtl_433()
