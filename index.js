@@ -7,9 +7,9 @@ const MQTT_BROKER = 'mqtt://192.168.0.186'
 
 const sensorToInstanceMap = {
   8: "ulkona",
-  9: "olohuone",
+  9: "aula",
   66: "vesimittari",
-  164: "yläaula",
+  164: "olohuone",
   246: "varasto"
 }
 
@@ -32,8 +32,8 @@ function handleLine(line) {
 }
 
 function handleInputJson(json) {
-  if(json.model === 'THGR968' || json.model === 'THGR122N' || json.model === 'Nexus Temperature/Humidity') {
-    handleThgrOrNexus(json)
+  if(json.model === 'THGR968' || json.model === 'THGR122N' || json.model === 'Prologue sensor' || json.model === 'Nexus Temperature/Humidity') {
+    handleThgrOrPrologueOrNexus(json)
   } else if(json.model === 'Waveman Switch Transmitter') {
     handleSwitchTransmitter(json)
   } else {
@@ -41,7 +41,7 @@ function handleInputJson(json) {
   }
 }
 
-function handleThgrOrNexus(json) {
+function handleThgrOrPrologueOrNexus(json) {
   const instance = sensorToInstanceMap[json.id]
   if(!instance) {
     log.warn('No instance mapping for rtl_433 ID', json.id)
