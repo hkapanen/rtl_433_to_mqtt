@@ -5,12 +5,16 @@ const mqtt = require('mqtt')
 
 const MQTT_BROKER = 'mqtt://192.168.0.186'
 
-const sensorToInstanceMap = {
+const idToName = {
   8: "ulkona",
-  9: "aula",
   66: "vesimittari",
   164: "olohuone",
   246: "varasto"
+}
+
+const ridToName = {
+  43: "verstas",
+  190: "aula"
 }
 
 startRtl_433()
@@ -32,8 +36,10 @@ function handleLine(line) {
 }
 
 function handleInputJson(json) {
-  if(json.model === 'THGR968' || json.model === 'THGR122N' || json.model === 'Prologue sensor' || json.model === 'Nexus Temperature/Humidity') {
-    handleThgrOrPrologueOrNexus(json)
+  if(json.model === 'THGR968' || json.model === 'THGR122N' || json.model === 'Nexus Temperature/Humidity') {
+    handleThgrOrNexus(json)
+  } else if(json.model === 'Prologue sensor') {
+    handlePrologue(json)
   } else if(json.model === 'Waveman Switch Transmitter') {
     handleSwitchTransmitter(json)
   } else {
@@ -41,10 +47,20 @@ function handleInputJson(json) {
   }
 }
 
-function handleThgrOrPrologueOrNexus(json) {
-  const instance = sensorToInstanceMap[json.id]
+function handleThgrOrNexus(json) {
+  const instance = idToName[json.id]
   if(!instance) {
     log.warn('No instance mapping for rtl_433 ID', json.id)
+    return
+  }
+  mqttClient.publish(`/sensor/${instance}/temp`, JSON.stringify({ temperature: json.temperature_C, ts: new Date() }), { retain: true })
+  mqttClient.publish(`/sensor/${instance}/rhum`, JSON.stringify({ humidity: json.humidity, ts: new Date() }), { retain: true })
+}
+
+function handlePrologue(json) {
+  const instance = ridToName[json.rid]
+  if(!instance) {
+    log.warn('No instance mapping for rtl_433 ID', json.rid)
     return
   }
   mqttClient.publish(`/sensor/${instance}/temp`, JSON.stringify({ temperature: json.temperature_C, ts: new Date() }), { retain: true })
