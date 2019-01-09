@@ -60,7 +60,7 @@ function handleInputJson(json) {
 function handleThgrOrNexus(json) {
   const instance = idToName[json.id]
   if(!instance) {
-    log.warn('No instance mapping for rtl_433 ID', json.id)
+    log.warn('No instance mapping for THGRx or Nexus sensor ID', json.id)
     return
   }
   mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ temperature: json.temperature_C, humidity: json.humidity, battery: json.battery, ts: new Date() }), { retain: true })
@@ -69,7 +69,7 @@ function handleThgrOrNexus(json) {
 function handlePrologue(json) {
   const instance = ridToName[json.rid]
   if(!instance) {
-    log.warn('No instance mapping for rtl_433 ID', json.rid)
+    log.warn('No instance mapping for Prologue sensor ID', json.rid)
     return
   }
   mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ temperature: json.temperature_C, humidity: json.humidity, battery: json.battery, ts: new Date() }), { retain: true })
@@ -78,13 +78,13 @@ function handlePrologue(json) {
 function handleGenericRemote(json) {
   const instance = gidToName[json.id]
   if(!instance) {
-    log.warn('No instance mapping for rtl_433 ID', json.id)
+    log.warn('No instance mapping for Generic Remote ID', json.id)
     return
   }
   if (json.cmd == '10') {
-    mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ action: opened, ts: new Date() }), { retain: true })
+    mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ action: 'opened', ts: new Date() }), { retain: true })
   } else if (json.cmd == '14') {
-    mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ action: closed, ts: new Date() }), { retain: true })
+    mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ action: 'closed', ts: new Date() }), { retain: true })
   } else {
     log.warn('Unknown switch state', json.cmd)
     return
