@@ -4,12 +4,16 @@ const log = require('winston')
 const mqtt = require('mqtt')
 
 const MQTT_BROKER = 'mqtt://192.168.0.186'
+const mqtt_topic = 'sensor'
+const duplicateTimeOut = 500 // ms
+
+var lastHeard = []
 
 const idToName = {
   8: "ulkona",
   66: "vesimittari",
   164: "olohuone",
-  246: "varasto",
+  246: "varasto"
 }
 
 const ridToName = {
@@ -21,18 +25,23 @@ const gidToName = {
   11515: "etuovi"
 }
 
+const cmdToAction = {
+  10: "opened",
+  14: "closed"
+}
+
 startRtl_433()
 const mqttClient = startMqttClient(MQTT_BROKER)
 
 function startRtl_433() {
-  const rtl_433 = spawn('rtl_433', ['-F', 'json'])
+  const rtl_433 = spawn('rtl_433', ['-F', 'json', '-M', 'hires'])
   const stdout = readline.createInterface({input: rtl_433.stdout})
   stdout.on('line', handleLine)
 }
 
 function handleLine(line) {
   try {
-    const json = JSON.parse(line)
+    var json = JSON.parse(line)
     handleInputJson(json)
   } catch(e) {
     log.info('Failed to parse input line:', line, e)
@@ -40,6 +49,8 @@ function handleLine(line) {
 }
 
 function handleInputJson(json) {
+  json.time = new Date(json.time)
+
   switch (json.model) {
     case 'THGR968':
     case 'THGR122N':
@@ -63,7 +74,14 @@ function handleThgrOrNexus(json) {
     log.warn('No instance mapping for THGRx or Nexus sensor ID', json.id)
     return
   }
-  mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ temperature: json.temperature_C, humidity: json.humidity, battery: json.battery, ts: new Date() }), { retain: true })
+
+  var msg = {}
+  msg['temperature'] = json.temperature_C
+  msg['humidity'] = json.humidity
+  msg['battery'] = json.battery
+  msg['ts'] = json.time
+
+  mqttPublish(instance, msg)
 }
 
 function handlePrologue(json) {
@@ -72,23 +90,40 @@ function handlePrologue(json) {
     log.warn('No instance mapping for Prologue sensor ID', json.rid)
     return
   }
-  mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ temperature: json.temperature_C, humidity: json.humidity, battery: json.battery, ts: new Date() }), { retain: true })
+  var msg = {}
+  msg['temperature'] = json.temperature_C
+  msg['humidity'] = json.humidity
+  msg['battery'] = json.battery
+  msg['ts'] = json.time
+
+  mqttPublish(instance, msg)
 }
 
 function handleGenericRemote(json) {
+  const now = json.time.getTime()
   const instance = gidToName[json.id]
-  if(!instance) {
-    log.warn('No instance mapping for Generic Remote ID', json.id)
+  const action = cmdToAction[json.cmd]
+
+  if(!instance || !action) {
+    log.warn('No instance mapping or action for Generic Remote ID ', json.id)
     return
   }
-  if (json.cmd == '10') {
-    mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ action: 'opened', ts: new Date() }), { retain: true })
-  } else if (json.cmd == '14') {
-    mqttClient.publish(`/sensor/${instance}`, JSON.stringify({ action: 'closed', ts: new Date() }), { retain: true })
-  } else {
-    log.warn('Unknown switch state', json.cmd)
-    return
+
+  if (lastHeard[json.id] + duplicateTimeOut > now) {
+    lastHeard[json.id] = now 
+    return  // Duplicate!
   }
+  lastHeard[json.id] = now
+
+  var msg = {}
+  msg['action'] = action
+  msg['ts'] = json.time
+
+  mqttPublish(instance, msg)
+}
+
+function mqttPublish(instance, msg) {
+  mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: true })
 }
 
 function startMqttClient(brokerUrl) {
