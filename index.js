@@ -25,6 +25,8 @@ const SENSORS = require('./sensors.json')
 const MQTT_BROKER = 'mqtt://192.168.0.186'
 const mqtt_topic = 'sensor'
 
+var lastHeard = []
+
 // Compile list of all the fields sensors will use to id themselves
 const id_fields = SENSORS.reduce((ids, sensor) => {
   Object.keys(sensor.idMap).forEach( id => {
@@ -52,21 +54,28 @@ function handleLine(line) {
 }
 
 function handleReceived(rec) {
+  rec.time = new Date(rec.time)
+  const now = rec.time.getTime()
   var sensor = idSensor(id_fields, rec)
+
+  if ('repeatMask' in sensor) {
+    if (lastHeard[sensor.name] + sensor.repeatMask > now) {
+      lastHeard[sensor.name] = now
+      return // masked
+    }
+  }
+  lastHeard[sensor.name] = now
   var data = handleData(sensor.dataMap, rec)
 
   mqttPublish(sensor.name, data)
 }
 
 function handleData(dataMap, rec) {
-  var timestamp = new Date(rec.time)
   var data = {}
-
-  data["time"] = timestamp.toISOString()
+  data["time"] = rec.time
   Object.keys(dataMap).forEach( key => {
     data[key] = rec[dataMap[key]]
   })
-
   return data
 }
 
@@ -84,7 +93,7 @@ function idSensor(id_fields, rec) {
    console.log('Received message from unknown sensor.')
   }
   if (matches.length > 1) {
-    console.log('Received message matches multiple sensor definitions!')
+    console.log('Received message matching multiple sensor definitions!')
   }
   return matches[0]
 }
@@ -102,7 +111,6 @@ function idMatch(id1, id2) {
 function mqttPublish(instance, msg) {
   mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: true })
 }
-
 
 function startMqttClient(brokerUrl) {
   const client = mqtt.connect(brokerUrl, { queueQoSZero : false })
