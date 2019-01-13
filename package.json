@@ -1,14 +1,14 @@
 
 {
   "name": "rtl_433_to_mqtt",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Listen to sensor readings from rtl_433 and pass them to mqtt broker in a coherent format",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "harri.kapanen@iki.fi",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "mqtt": "^2.18.8",
     "winston": "^3.1.0"
