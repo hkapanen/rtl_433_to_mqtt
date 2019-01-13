@@ -72,7 +72,7 @@ function handleReceived(rec) {
     data = handleTranslation(sensor.translations, data)
   }
 
-  mqttPublish(sensor.name, data)
+  mqttPublish(sensor.name, data, sensor.retain)
 }
 
 function handleTranslation(translations, data) {
@@ -120,8 +120,8 @@ function idMatch(id1, id2) {
   return match
 }
 
-function mqttPublish(instance, msg) {
-  mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: true })
+function mqttPublish(instance, msg, retain) {
+  mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: retain })
 }
 
 function startMqttClient(brokerUrl) {

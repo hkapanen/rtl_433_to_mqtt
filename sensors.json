@@ -9,7 +9,8 @@
       "rhum" : "humidity",
       "batt" : "battery"
     },
-    "repeatMask" : 500
+    "repeatMask" : 500,
+    "retain" : false
   },
   { "name" : "vesimittari",
     "idMap" : {
@@ -21,7 +22,8 @@
       "rhum" : "humidity",
       "batt" : "battery"
     },
-    "repeatMask" : 500
+    "repeatMask" : 500,
+    "retain" : false
   },
   { "name" : "olohuone",
     "idMap" : {
@@ -32,7 +34,8 @@
       "temp" : "temperature_C",
       "rhum" : "humidity",
       "batt" : "battery"
-    }
+    },
+    "retain" : false
   },
   { "name" : "varasto",
       "idMap" : {
@@ -44,7 +47,8 @@
       "rhum" : "humidity",
       "batt" : "battery"
     },
-    "repeatMask" : 500
+    "repeatMask" : 500,
+    "retain" : false
   },
   { "name" : "verstas",
     "idMap" : {
@@ -56,7 +60,8 @@
       "temp" : "temperature_C",
       "rhum" : "humidity",
       "batt" : "battery"
-    }
+    },
+    "retain" : false
   },
   { "name" : "aula",
     "idMap" : {
@@ -68,7 +73,8 @@
       "temp" : "temperature_C",
       "rhum" : "humidity",
       "batt" : "battery"
-    }
+    },
+    "retain" : false
   },
   { "name" : "etuovi",
     "idMap" : {
@@ -84,6 +90,7 @@
         "14" : "closed"       
       }
     },
-    "repeatMask" : 500
+    "repeatMask" : 500,
+    "retain" : false
   }
 ]
