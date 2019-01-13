@@ -1,0 +1,82 @@
+[
+  { "name" : "ulkona",
+    "idMap" : {
+      "model" : "THGR968",
+      "id" : 8
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    } 
+  },
+  { "name" : "vesimittari",
+    "idMap" : {
+      "model" : "THGR122N",
+      "id" : 66
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    }
+  },
+  { "name" : "olohuone",
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 164
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    }
+  },
+  { "name" : "varasto",
+      "idMap" : {
+      "model" : "THGR122N",
+      "id" : 246
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    }
+  },
+  { "name" : "verstas",
+    "idMap" : {
+      "model" : "Prologue sensor",
+      "id" : 9,
+      "rid" : 43
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    }
+  },
+  { "name" : "aula",
+    "idMap" : {
+      "model" : "Prologue sensor",
+      "id" : 9,
+      "rid" : 190
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    }
+  },
+  { "name" : "etuovi",
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 11515
+    },
+    "cmdField" : "cmd",
+    "cmdMap" : {
+      "10" : "opened",
+      "14" : "closed"       
+    },
+    "repeatMask" : 500
+  }
+]
