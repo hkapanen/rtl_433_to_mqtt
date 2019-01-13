@@ -75,10 +75,14 @@
       "model" : "Generic Remote",
       "id" : 11515
     },
-    "cmdField" : "cmd",
-    "cmdMap" : {
-      "10" : "opened",
-      "14" : "closed"       
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "10" : "opened",
+        "14" : "closed"       
+      }
     },
     "repeatMask" : 500
   }

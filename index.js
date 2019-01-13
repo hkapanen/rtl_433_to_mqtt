@@ -68,7 +68,18 @@ function handleReceived(rec) {
   lastHeard[sensor.name] = now
   var data = handleData(sensor.dataMap, rec)
 
+  if ('translations' in sensor) {
+    data = handleTranslation(sensor.translations, data)
+  }
+
   mqttPublish(sensor.name, data)
+}
+
+function handleTranslation(translations, data) {
+  Object.keys(translations).forEach( entry => {
+    data[entry] = translations[entry][data[entry]]
+  })
+  return data
 }
 
 function handleData(dataMap, rec) {
