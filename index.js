@@ -25,7 +25,7 @@ const SENSORS = require('./sensors.json')
 const MQTT_BROKER = 'mqtt://192.168.0.186'
 const mqtt_topic = 'sensor'
 
-var lastHeard = []
+var lastHeard = []  // keeping record when sensors were last heard
 
 // Compile list of all the fields sensors will use to id themselves
 const id_fields = SENSORS.reduce((ids, sensor) => {
@@ -49,7 +49,7 @@ function handleLine(line) {
     var rec = JSON.parse(line)
     handleReceived(rec)
   } catch(e) {
-    log.info('Failed to parse input line:', line, e)
+    log.info('Failed to parse input line: ' + line + e)
   }
 }
 
@@ -58,10 +58,11 @@ function handleReceived(rec) {
   const now = rec.time.getTime()
   var sensor = idSensor(id_fields, rec)
 
+  // Don't repeat the message if resent within mask period (ms)
   if ('repeatMask' in sensor) {
     if (lastHeard[sensor.name] + sensor.repeatMask > now) {
       lastHeard[sensor.name] = now
-      return // masked
+      return
     }
   }
   lastHeard[sensor.name] = now
@@ -90,10 +91,10 @@ function idSensor(id_fields, rec) {
   var matches = SENSORS.filter(sensor => (idMatch(sensor.idMap, identity)), [])
 
   if (matches.length == 0) {
-   console.log('Received message from unknown sensor.')
+    throw "Received message from unknown sensor."
   }
   if (matches.length > 1) {
-    console.log('Received message matching multiple sensor definitions!')
+    throw "Received message matching multiple sensor definitions!"
   }
   return matches[0]
 }
