@@ -28,7 +28,8 @@
   { "name" : "olohuone",
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
-      "id" : 164
+      "id" : 164,
+      "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
@@ -65,9 +66,9 @@
   },
   { "name" : "aula",
     "idMap" : {
-      "model" : "Prologue sensor",
-      "id" : 9,
-      "rid" : 190
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 156,
+      "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
@@ -91,6 +92,97 @@
       }
     },
     "repeatMask" : 500,
+    "retain" : false
+  },
+  { "name" : "vierashuone",
+    "idMap" : {
+      "model" : "Prologue sensor",
+      "id" : 9,
+      "rid" : 204
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "makuuhuone1",
+    "idMap" : {
+      "model" : "Prologue sensor",
+      "id" : 9,
+      "rid" : 190
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "makuuhuone2",
+    "idMap" : {
+      "model" : "Prologue sensor",
+      "id" : 9,
+      "rid" : 170
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "makuuhuone3",
+    "idMap" : {
+      "model" : "Prologue sensor",
+      "id" : 9,
+      "rid" : 247
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "sauna",
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 164,
+      "channel" : 2
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "pesuhuone",
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 119,
+      "channel" : 3
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "kodinhoitohuone",
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 230,
+      "channel" : 3
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
     "retain" : false
   }
 ]
