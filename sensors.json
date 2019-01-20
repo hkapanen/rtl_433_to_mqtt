@@ -77,23 +77,6 @@
     },
     "retain" : false
   },
-  { "name" : "etuovi",
-    "idMap" : {
-      "model" : "Generic Remote",
-      "id" : 11515
-    },
-    "dataMap" : {
-      "door" : "cmd"
-    },
-    "translations" : {
-      "door" : {
-        "10" : "opened",
-        "14" : "closed"       
-      }
-    },
-    "repeatMask" : 500,
-    "retain" : false
-  },
   { "name" : "vierashuone",
     "idMap" : {
       "model" : "Prologue sensor",
@@ -183,6 +166,91 @@
       "rhum" : "humidity",
       "batt" : "battery"
     },
+    "retain" : false
+  },
+  { "name" : "etuovi",
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 11171
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "10" : "opened",
+        "14" : "closed"       
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : false
+  },
+  { "name" : "takaovi",
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 11515
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "10" : "opened",
+        "14" : "closed"       
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : false
+  },
+  { "name" : "kodarinovi",
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 11512
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "10" : "opened",
+        "14" : "closed"       
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : false
+  },
+  { "name" : "verstaanEtuovi",
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 11494
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "10" : "opened",
+        "14" : "closed"       
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : false
+  },
+  { "name" : "verstaanTakaovi",
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 11468
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "10" : "opened",
+        "14" : "closed"       
+      }
+    },
+    "repeatMask" : 500,
     "retain" : false
   }
 ]
