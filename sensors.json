@@ -133,7 +133,7 @@
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
       "id" : 164,
-      "channel" : 3
+      "channel" : 2
     },
     "dataMap" : {
       "temp" : "temperature_C",
