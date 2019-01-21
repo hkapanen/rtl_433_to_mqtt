@@ -133,7 +133,7 @@
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
       "id" : 164,
-      "channel" : 2
+      "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
@@ -157,13 +157,12 @@
   },
   { "name" : "kodinhoitohuone",
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus Temperature",
       "id" : 230,
       "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
-      "rhum" : "humidity",
       "batt" : "battery"
     },
     "retain" : false
