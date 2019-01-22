@@ -182,7 +182,7 @@
       }
     },
     "repeatMask" : 500,
-    "retain" : false
+    "retain" : true
   },
   { "name" : "takaovi",
     "idMap" : {
@@ -199,7 +199,7 @@
       }
     },
     "repeatMask" : 500,
-    "retain" : false
+    "retain" : true
   },
   { "name" : "kodarinovi",
     "idMap" : {
@@ -216,7 +216,7 @@
       }
     },
     "repeatMask" : 500,
-    "retain" : false
+    "retain" : true
   },
   { "name" : "verstaanEtuovi",
     "idMap" : {
@@ -233,7 +233,7 @@
       }
     },
     "repeatMask" : 500,
-    "retain" : false
+    "retain" : true
   },
   { "name" : "verstaanTakaovi",
     "idMap" : {
@@ -250,6 +250,6 @@
       }
     },
     "repeatMask" : 500,
-    "retain" : false
+    "retain" : true
   }
 ]
