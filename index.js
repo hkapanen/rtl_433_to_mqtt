@@ -84,7 +84,11 @@ function handleReceived(msg) {
 
 function handleTranslation(translations, data) {
   Object.keys(translations).forEach( entry => {
-    data[entry] = translations[entry][data[entry]]
+    if (translations[entry][data[entry]]) {
+      data[entry] = translations[entry][data[entry]]
+    } else {
+      throw "Don't know how to translate that!"
+    }
   })
   return data
 }
