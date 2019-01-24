@@ -16,7 +16,6 @@
 
 const spawn = require('child_process').spawn
 const readline = require('readline')
-const log = require('winston')
 const mqtt = require('mqtt')
 
 // Sensor definitions
@@ -49,7 +48,7 @@ function handleLine(line) {
     var rec = JSON.parse(line)
     handleReceived(rec)
   } catch(e) {
-    log.info('Failed to parse input line: ' + line + e)
+    console.log('Failed to parse input line: ' + line + e)
   }
 }
 
@@ -126,8 +125,8 @@ function mqttPublish(instance, msg, retain) {
 
 function startMqttClient(brokerUrl) {
   const client = mqtt.connect(brokerUrl, { queueQoSZero : false })
-  client.on('connect', () => log.info("Connected to MQTT server"))
-  client.on('offline', () => log.info('Disconnected from MQTT server'))
-  client.on('error', () => log.error('MQTT client error', e))
+  client.on('connect', () => console.log("Connected to MQTT server"))
+  client.on('offline', () => console.log('Disconnected from MQTT server'))
+  client.on('error', () => console.log('MQTT client error' + e))
   return client
 }
