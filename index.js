@@ -24,7 +24,7 @@ const SENSORS = require('./sensors.json')
 const MQTT_BROKER = 'mqtt://192.168.0.186'
 const mqtt_topic = 'sensor'
 
-var lastHeard = []  // keeping record when sensors were last heard
+var prevMsg = {}  // keeping record when sensors were last heard
 
 // Compile list of all the fields sensors will use to id themselves
 const id_fields = SENSORS.reduce((ids, sensor) => {
@@ -45,27 +45,35 @@ function startRtl_433() {
 
 function handleLine(line) {
   try {
-    var rec = JSON.parse(line)
-    handleReceived(rec)
+    handleReceived(JSON.parse(line))
   } catch(e) {
-    console.log('Failed to parse input line: ' + line + e)
+    console.log('Failed to parse input line: ' + line + ' - ' + e)
   }
 }
 
-function handleReceived(rec) {
-  rec.time = new Date(rec.time)
-  const now = rec.time.getTime()
-  var sensor = idSensor(id_fields, rec)
+function handleReceived(msg) {
+  var recMsg = msg
+  recMsg.time = new Date(recMsg.time)
+  const now = recMsg.time.getTime()
 
-  // Don't repeat the message if resent within mask period (ms)
-  if ('repeatMask' in sensor) {
-    if (lastHeard[sensor.name] + sensor.repeatMask > now) {
-      lastHeard[sensor.name] = now
-      return
+  var sensor = idSensor(id_fields, recMsg)
+
+  // Don't repeat the message if the exact same was received within mask period (ms)
+  if ('repeatMask' in sensor && prevMsg[sensor.name]) {
+    if (prevMsg[sensor.name].time + sensor.repeatMask > now) {
+      var { time, ...prevData} = prevMsg[sensor.name]
+      var { time, ...recData} = recMsg
+
+      if (JSON.stringify(prevData) === JSON.stringify(recData)) {
+        prevMsg[sensor.name].time = now
+        return
+      }
     }
   }
-  lastHeard[sensor.name] = now
-  var data = handleData(sensor.dataMap, rec)
+  prevMsg[sensor.name] = recMsg
+  prevMsg[sensor.name].time = now
+
+  var data = handleData(sensor.dataMap, recMsg)
 
   if ('translations' in sensor) {
     data = handleTranslation(sensor.translations, data)
@@ -101,10 +109,10 @@ function idSensor(id_fields, rec) {
   var matches = SENSORS.filter(sensor => (idMatch(sensor.idMap, identity)), [])
 
   if (matches.length == 0) {
-    throw "Received message from unknown sensor."
+    throw "Unknown sensor."
   }
   if (matches.length > 1) {
-    throw "Received message matching multiple sensor definitions!"
+    throw "Multiple matching sensor definitions!"
   }
   return matches[0]
 }
