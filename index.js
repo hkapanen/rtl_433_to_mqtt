@@ -38,7 +38,7 @@ startRtl_433()
 const mqttClient = startMqttClient(MQTT_BROKER)
 
 function startRtl_433() {
-  const rtl_433 = spawn('rtl_433', ['-F', 'json', '-M', 'hires'])
+  const rtl_433 = spawn('rtl_433', ['-F', 'json', '-M', 'hires', '-R', '3', '-R', '12', '-R', '19'])
   const stdout = readline.createInterface({input: rtl_433.stdout})
   stdout.on('line', handleLine)
 }
