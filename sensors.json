@@ -1,5 +1,6 @@
 [
   { "name" : "ulkona",
+    "protocol" : 12,
     "idMap" : {
       "model" : "THGR968",
       "id" : 8
@@ -13,6 +14,7 @@
     "retain" : false
   },
   { "name" : "vesimittari",
+    "protocol" : 12,
     "idMap" : {
       "model" : "THGR122N",
       "id" : 66
@@ -26,6 +28,7 @@
     "retain" : false
   },
   { "name" : "olohuone",
+    "protocol" : 19,
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
       "id" : 164,
@@ -39,6 +42,7 @@
     "retain" : false
   },
   { "name" : "varasto",
+    "protocol" : 12,
       "idMap" : {
       "model" : "THGR122N",
       "id" : 246
@@ -52,6 +56,7 @@
     "retain" : false
   },
   { "name" : "verstas",
+    "protocol" : 3,
     "idMap" : {
       "model" : "Prologue sensor",
       "id" : 9,
@@ -65,6 +70,7 @@
     "retain" : false
   },
   { "name" : "aula",
+    "protocol" : 19,
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
       "id" : 156,
@@ -78,6 +84,7 @@
     "retain" : false
   },
   { "name" : "vierashuone",
+    "protocol" : 3,
     "idMap" : {
       "model" : "Prologue sensor",
       "id" : 9,
@@ -91,6 +98,7 @@
     "retain" : false
   },
   { "name" : "makuuhuone1",
+    "protocol" : 3,
     "idMap" : {
       "model" : "Prologue sensor",
       "id" : 9,
@@ -104,6 +112,7 @@
     "retain" : false
   },
   { "name" : "makuuhuone2",
+    "protocol" : 3,
     "idMap" : {
       "model" : "Prologue sensor",
       "id" : 9,
@@ -117,6 +126,7 @@
     "retain" : false
   },
   { "name" : "makuuhuone3",
+    "protocol" : 3,
     "idMap" : {
       "model" : "Prologue sensor",
       "id" : 9,
@@ -130,6 +140,7 @@
     "retain" : false
   },
   { "name" : "sauna",
+    "protocol" : 19,
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
       "id" : 164,
@@ -143,6 +154,7 @@
     "retain" : false
   },
   { "name" : "pesuhuone",
+    "protocol" : 19,
     "idMap" : {
       "model" : "Nexus Temperature/Humidity",
       "id" : 119,
@@ -156,6 +168,7 @@
     "retain" : false
   },
   { "name" : "kodinhoitohuone",
+    "protocol" : 19,
     "idMap" : {
       "model" : "Nexus Temperature",
       "id" : 230,
@@ -168,6 +181,7 @@
     "retain" : false
   },
   { "name" : "etuovi",
+    "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
       "id" : 11171
@@ -185,6 +199,7 @@
     "retain" : true
   },
   { "name" : "takaovi",
+    "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
       "id" : 11515
@@ -202,6 +217,7 @@
     "retain" : true
   },
   { "name" : "kodarinovi",
+    "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
       "id" : 11512
@@ -219,6 +235,7 @@
     "retain" : true
   },
   { "name" : "verstaanEtuovi",
+    "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
       "id" : 11494
@@ -236,6 +253,7 @@
     "retain" : true
   },
   { "name" : "verstaanTakaovi",
+    "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
       "id" : 11468

@@ -26,6 +26,18 @@ const mqtt_topic = 'sensor'
 
 var prevMsg = {}  // keeping record when sensors were last heard
 
+// Compile list of  protocols to listen
+var protocols = []
+
+for (var i = 0; i < SENSORS.length; i++) {
+  if (SENSORS[i].protocol) {
+    const protocol = SENSORS[i].protocol
+    if (protocols.indexOf(protocol) === -1) { protocols.push(protocol) }
+  } else {
+    console.log("Sensor without protocol!")
+  }
+}
+
 // Compile list of all the fields sensors will use to id themselves
 const id_fields = SENSORS.reduce((ids, sensor) => {
   Object.keys(sensor.idMap).forEach( id => {
@@ -34,11 +46,17 @@ const id_fields = SENSORS.reduce((ids, sensor) => {
   return ids
 }, [])
 
-startRtl_433()
+startRtl_433(protocols)
 const mqttClient = startMqttClient(MQTT_BROKER)
 
-function startRtl_433() {
-  const rtl_433 = spawn('rtl_433', ['-F', 'json', '-M', 'hires', '-R', '3', '-R', '12', '-R', '19'])
+function startRtl_433(protocols) {
+  var options = ['-F', 'json', '-M', 'hires']
+
+  for (i = 0; i < protocols.length; i++) {
+    options = options.concat(['-R', protocols[i]])
+  }
+
+  const rtl_433 = spawn('rtl_433', options)
   const stdout = readline.createInterface({input: rtl_433.stdout})
   stdout.on('line', handleLine)
 }
