@@ -176,6 +176,7 @@
     },
     "dataMap" : {
       "temp" : "temperature_C",
+      "rhum" : "humidity",
       "batt" : "battery"
     },
     "retain" : false
