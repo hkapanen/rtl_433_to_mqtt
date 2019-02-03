@@ -170,7 +170,7 @@
   { "name" : "kodinhoitohuone",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature",
+      "model" : "Nexus Temperature/Humidity",
       "id" : 230,
       "channel" : 3
     },
