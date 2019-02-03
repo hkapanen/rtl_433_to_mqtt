@@ -50,7 +50,7 @@ startRtl_433(protocols)
 const mqttClient = startMqttClient(MQTT_BROKER)
 
 function startRtl_433(protocols) {
-  var options = ['-F', 'json', '-M', 'hires']
+  var options = ['-F', 'json', '-M', 'hires', '-g', '45']
 
   for (i = 0; i < protocols.length; i++) {
     options = options.concat(['-R', protocols[i]])
