@@ -185,15 +185,15 @@
     "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
-      "id" : 11171
+      "id" : 2691
     },
     "dataMap" : {
       "door" : "cmd"
     },
     "translations" : {
       "door" : {
-        "10" : "opened",
-        "14" : "closed"       
+        "3" : "opened",
+        "9" : "closed"       
       }
     },
     "repeatMask" : 500,
@@ -203,15 +203,15 @@
     "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
-      "id" : 11515
+      "id" : 2755
     },
     "dataMap" : {
       "door" : "cmd"
     },
     "translations" : {
       "door" : {
-        "10" : "opened",
-        "14" : "closed"       
+        "3" : "opened",
+        "9" : "closed"       
       }
     },
     "repeatMask" : 500,
@@ -221,51 +221,69 @@
     "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
-      "id" : 11512
+      "id" : 32347
     },
     "dataMap" : {
       "door" : "cmd"
     },
     "translations" : {
       "door" : {
-        "10" : "opened",
-        "14" : "closed"       
+        "3" : "opened",
+        "9" : "closed"       
       }
     },
     "repeatMask" : 500,
     "retain" : true
   },
-  { "name" : "verstaanEtuovi",
+  { "name" : "varastonovi",
     "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
-      "id" : 11494
+      "id" : 2486
     },
     "dataMap" : {
       "door" : "cmd"
     },
     "translations" : {
       "door" : {
-        "10" : "opened",
-        "14" : "closed"       
+        "3" : "opened",
+        "9" : "closed"       
       }
     },
     "repeatMask" : 500,
     "retain" : true
   },
-  { "name" : "verstaanTakaovi",
+  { "name" : "verstaanetuovi",
     "protocol" : 30,
     "idMap" : {
       "model" : "Generic Remote",
-      "id" : 11468
+      "id" : 32793
     },
     "dataMap" : {
       "door" : "cmd"
     },
     "translations" : {
       "door" : {
-        "10" : "opened",
-        "14" : "closed"       
+        "3" : "opened",
+        "9" : "closed"       
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : true
+  },
+  { "name" : "verstaantakaovi",
+    "protocol" : 30,
+    "idMap" : {
+      "model" : "Generic Remote",
+      "id" : 2494
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "3" : "opened",
+        "9" : "closed"       
       }
     },
     "repeatMask" : 500,
