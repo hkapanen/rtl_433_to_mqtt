@@ -181,6 +181,62 @@
     },
     "retain" : false
   },
+  { "name" : "vaatehuone",
+    "protocol" : 19,
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 176,
+      "channel" : 2
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "keittio",
+    "protocol" : 19,
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 30,
+      "channel" : 2
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "eteinen",
+    "protocol" : 19,
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 60,
+      "channel" : 2
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
+  { "name" : "tuulikaappi",
+    "protocol" : 19,
+    "idMap" : {
+      "model" : "Nexus Temperature/Humidity",
+      "id" : 152,
+      "channel" : 2
+    },
+    "dataMap" : {
+      "temp" : "temperature_C",
+      "rhum" : "humidity",
+      "batt" : "battery"
+    },
+    "retain" : false
+  },
   { "name" : "etuovi",
     "protocol" : 30,
     "idMap" : {
