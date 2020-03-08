@@ -21,6 +21,9 @@ const mqtt = require('mqtt')
 // Sensor definitions
 const SENSORS = require('./sensors.json')
 
+// Receiver params
+const RTL433_PARAMS = process.env.RTL433_PARAMS || undefined
+
 // MQTT broker info
 const MQTT_BROKER = process.env.MQTT_BROKER ? process.env.MQTT_BROKER : 'mqtt://localhost'
 const MQTT_USERNAME = process.env.MQTT_USERNAME || undefined
@@ -53,11 +56,17 @@ startRtl_433(protocols)
 const mqttClient = startMqttClient(MQTT_BROKER, MQTT_USERNAME, MQTT_PASSWORD)
 
 function startRtl_433(protocols) {
-  var options = ['-F', 'json', '-M', 'hires', '-g', '49.6', '-s', '1024k']
+  var options = ['-F', 'json', '-M', 'hires']
+
+  if (RTL433_PARAMS) {
+    options = options.concat([RTL433_PARAMS.split(/\s+/)])
+  }
 
   for (i = 0; i < protocols.length; i++) {
     options = options.concat(['-R', protocols[i]])
   }
+
+  console.log("starting rtl_433 with options: " + options)
 
   const rtl_433 = spawn('rtl_433', options)
   const stdout = readline.createInterface({input: rtl_433.stdout})
