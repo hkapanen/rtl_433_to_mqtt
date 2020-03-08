@@ -116,7 +116,7 @@
     "idMap" : {
       "model" : "Prologue-TH",
       "subtype" : 9,
-      "id" : 21
+      "id" : 19
     },
     "dataMap" : {
       "temp" : "temperature_C",
