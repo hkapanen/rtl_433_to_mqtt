@@ -51,7 +51,7 @@ const id_fields = SENSORS.reduce((ids, sensor) => {
 }, [])
 
 startRtl_433(protocols)
-const mqttClient = startMqttClient(MQTT_BROKER)
+const mqttClient = startMqttClient(MQTT_BROKER, MQTT_USERNAME, MQTT_PASSWORD)
 
 function startRtl_433(protocols) {
   var options = ['-F', 'json', '-M', 'hires', '-g', '49.6', '-s', '1024k']
@@ -157,8 +157,8 @@ function mqttPublish(instance, msg, retain) {
   mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: retain })
 }
 
-function startMqttClient(MQTT_BROKER, MQTT_USERNAME, MQTT_PASSWORD) {
-  const client = mqtt.connect(brokerUrl, { queueQoSZero : false })
+function startMqttClient(brokerUrl, username, password) {
+  const client = mqtt.connect(brokerUrl, { queueQoSZero : false, username, password })
   client.on('connect', () => console.log("Connected to MQTT server"))
   client.on('offline', () => console.log('Disconnected from MQTT server'))
   client.on('error', e => console.log('MQTT client error', e))
