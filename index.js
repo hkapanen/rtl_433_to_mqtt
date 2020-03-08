@@ -157,6 +157,6 @@ function startMqttClient(brokerUrl) {
   const client = mqtt.connect(brokerUrl, { queueQoSZero : false })
   client.on('connect', () => console.log("Connected to MQTT server"))
   client.on('offline', () => console.log('Disconnected from MQTT server'))
-  client.on('error', () => console.log('MQTT client error' + e))
+  client.on('error', e => console.log('MQTT client error', e))
   return client
 }
