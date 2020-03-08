@@ -71,6 +71,15 @@ function startRtl_433(protocols) {
   const rtl_433 = spawn('rtl_433', options)
   const stdout = readline.createInterface({input: rtl_433.stdout})
   stdout.on('line', handleLine)
+
+  rtl_433.stderr.on('data', (data) => {
+    console.error(`rtl_433 stderr:\n${data}`);
+  });
+
+  rtl_433.on('exit', function (code, signal) {
+    console.error('rtl_433 died ' +
+                `code ${code} and signal ${signal}`);
+  });
 }
 
 function handleLine(line) {
