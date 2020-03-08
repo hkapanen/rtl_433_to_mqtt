@@ -25,8 +25,7 @@ const SENSORS = require('./sensors.json')
 const MQTT_BROKER = process.env.MQTT_BROKER ? process.env.MQTT_BROKER : 'mqtt://localhost'
 const MQTT_USERNAME = process.env.MQTT_USERNAME || undefined
 const MQTT_PASSWORD = process.env.MQTT_PASSWORD || undefined
-
-const mqtt_topic = 'sensor'
+const MQTT_TOPIC = process.env.MQTT_TOPIC ? process.env.MQTT_TOPIC : 'rtl_433'
 
 var prevMsg = {}  // keeping record when sensors were last heard
 
@@ -154,7 +153,7 @@ function idMatch(id1, id2) {
 }
 
 function mqttPublish(instance, msg, retain) {
-  mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: retain })
+  mqttClient.publish(`/${MQTT_TOPIC}/${instance}`, JSON.stringify(msg), { retain: retain })
 }
 
 function startMqttClient(brokerUrl, username, password) {
