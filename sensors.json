@@ -2,13 +2,13 @@
   { "name" : "ulkona",
     "protocol" : 12,
     "idMap" : {
-      "model" : "THGR968",
+      "model" : "Oregon-THGR968",
       "id" : 8
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "repeatMask" : 500,
     "retain" : false
@@ -16,13 +16,13 @@
   { "name" : "vesimittari",
     "protocol" : 12,
     "idMap" : {
-      "model" : "THGR122N",
+      "model" : "Oregon-THGR122N",
       "id" : 66
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "repeatMask" : 500,
     "retain" : false
@@ -30,27 +30,27 @@
   { "name" : "olohuone",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 164,
       "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "varasto",
     "protocol" : 12,
       "idMap" : {
-      "model" : "THGR122N",
+      "model" : "Oregon-THGR122N",
       "id" : 246
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "repeatMask" : 500,
     "retain" : false
@@ -58,189 +58,189 @@
   { "name" : "verstas",
     "protocol" : 3,
     "idMap" : {
-      "model" : "Prologue sensor",
-      "id" : 9,
-      "rid" : 43
+      "model" : "Prologue-TH",
+      "subtype" : 9,
+      "id" : 62
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "aula",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 156,
       "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "vierashuone",
     "protocol" : 3,
     "idMap" : {
-      "model" : "Prologue sensor",
-      "id" : 9,
-      "rid" : 204
+      "model" : "Prologue-TH",
+      "subtype" : 9,
+      "id" : 21
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "makuuhuone1",
     "protocol" : 3,
     "idMap" : {
-      "model" : "Prologue sensor",
-      "id" : 9,
-      "rid" : 190
+      "model" : "Prologue-TH",
+      "subtype" : 9,
+      "id" : 102
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "makuuhuone2",
     "protocol" : 3,
     "idMap" : {
-      "model" : "Prologue sensor",
-      "id" : 9,
-      "rid" : 170
+      "model" : "Prologue-TH",
+      "subtype" : 9,
+      "id" : 21
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "makuuhuone3",
     "protocol" : 3,
     "idMap" : {
-      "model" : "Prologue sensor",
-      "id" : 9,
-      "rid" : 247
+      "model" : "Prologue-TH",
+      "subtype" : 9,
+      "id" : 42
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "sauna",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 164,
       "channel" : 2
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "pesuhuone",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 119,
       "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "kodinhoitohuone",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 230,
       "channel" : 3
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "vaatehuone",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 176,
       "channel" : 2
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "keittio",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 30,
       "channel" : 2
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "eteinen",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 60,
       "channel" : 2
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "tuulikaappi",
     "protocol" : 19,
     "idMap" : {
-      "model" : "Nexus Temperature/Humidity",
+      "model" : "Nexus-TH",
       "id" : 152,
       "channel" : 2
     },
     "dataMap" : {
       "temp" : "temperature_C",
       "rhum" : "humidity",
-      "batt" : "battery"
+      "batt" : "battery_ok"
     },
     "retain" : false
   },
   { "name" : "etuovi",
     "protocol" : 30,
     "idMap" : {
-      "model" : "Generic Remote",
+      "model" : "Generic-Remote",
       "id" : 2691
     },
     "dataMap" : {
@@ -258,7 +258,7 @@
   { "name" : "takaovi",
     "protocol" : 30,
     "idMap" : {
-      "model" : "Generic Remote",
+      "model" : "Generic-Remote",
       "id" : 2755
     },
     "dataMap" : {
@@ -276,7 +276,7 @@
   { "name" : "kodarinovi",
     "protocol" : 30,
     "idMap" : {
-      "model" : "Generic Remote",
+      "model" : "Generic-Remote",
       "id" : 32347
     },
     "dataMap" : {
@@ -294,7 +294,7 @@
   { "name" : "varastonovi",
     "protocol" : 30,
     "idMap" : {
-      "model" : "Generic Remote",
+      "model" : "Generic-Remote",
       "id" : 2486
     },
     "dataMap" : {
@@ -312,7 +312,7 @@
   { "name" : "verstaanetuovi",
     "protocol" : 30,
     "idMap" : {
-      "model" : "Generic Remote",
+      "model" : "Generic-Remote",
       "id" : 32793
     },
     "dataMap" : {
@@ -330,7 +330,7 @@
   { "name" : "verstaantakaovi",
     "protocol" : 30,
     "idMap" : {
-      "model" : "Generic Remote",
+      "model" : "Generic-Remote",
       "id" : 2494
     },
     "dataMap" : {
