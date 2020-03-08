@@ -21,7 +21,11 @@ const mqtt = require('mqtt')
 // Sensor definitions
 const SENSORS = require('./sensors.json')
 
-const MQTT_BROKER = 'mqtt://192.168.0.186'
+// MQTT broker info
+const MQTT_BROKER = process.env.MQTT_BROKER ? process.env.MQTT_BROKER : 'mqtt://localhost'
+const MQTT_USERNAME = process.env.MQTT_USERNAME || undefined
+const MQTT_PASSWORD = process.env.MQTT_PASSWORD || undefined
+
 const mqtt_topic = 'sensor'
 
 var prevMsg = {}  // keeping record when sensors were last heard
@@ -153,7 +157,7 @@ function mqttPublish(instance, msg, retain) {
   mqttClient.publish(`/${mqtt_topic}/${instance}`, JSON.stringify(msg), { retain: retain })
 }
 
-function startMqttClient(brokerUrl) {
+function startMqttClient(MQTT_BROKER, MQTT_USERNAME, MQTT_PASSWORD) {
   const client = mqtt.connect(brokerUrl, { queueQoSZero : false })
   client.on('connect', () => console.log("Connected to MQTT server"))
   client.on('offline', () => console.log('Disconnected from MQTT server'))
