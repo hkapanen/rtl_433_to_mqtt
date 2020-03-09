@@ -59,7 +59,7 @@ function startRtl_433(protocols) {
   var options = ['-F', 'json', '-M', 'hires']
 
   if (RTL433_PARAMS) {
-    options = options.concat([RTL433_PARAMS.split(/\s+/)])
+    options = options.concat(RTL433_PARAMS.split(/\s+/))
   }
 
   for (i = 0; i < protocols.length; i++) {
