@@ -83,62 +83,6 @@
     },
     "retain" : false
   },
-  { "name" : "vierashuone",
-    "protocol" : 3,
-    "idMap" : {
-      "model" : "Prologue-TH",
-      "subtype" : 9,
-      "id" : 21
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "makuuhuone1",
-    "protocol" : 3,
-    "idMap" : {
-      "model" : "Prologue-TH",
-      "subtype" : 9,
-      "id" : 102
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "makuuhuone2",
-    "protocol" : 3,
-    "idMap" : {
-      "model" : "Prologue-TH",
-      "subtype" : 9,
-      "id" : 208
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "makuuhuone3",
-    "protocol" : 3,
-    "idMap" : {
-      "model" : "Prologue-TH",
-      "subtype" : 9,
-      "id" : 42
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
   { "name" : "sauna",
     "protocol" : 19,
     "idMap" : {
@@ -186,20 +130,6 @@
     "idMap" : {
       "model" : "Nexus-TH",
       "id" : 176,
-      "channel" : 2
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "keittio",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 30,
       "channel" : 2
     },
     "dataMap" : {
