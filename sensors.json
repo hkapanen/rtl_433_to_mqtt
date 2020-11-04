@@ -45,7 +45,7 @@
     "protocol" : 12,
       "idMap" : {
       "model" : "Oregon-THGR122N",
-      "id" : 246
+      "id" : 87
     },
     "dataMap" : {
       "temp" : "temperature_C",
