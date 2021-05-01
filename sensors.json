@@ -13,20 +13,6 @@
     "repeatMask" : 500,
     "retain" : false
   },
-  { "name" : "olohuone",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 164,
-      "channel" : 3
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
   { "name" : "vesimittari",
     "protocol" : 12,
       "idMap" : {
@@ -39,104 +25,6 @@
       "batt" : "battery_ok"
     },
     "repeatMask" : 500,
-    "retain" : false
-  },
-  { "name" : "aula",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 156,
-      "channel" : 3
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "sauna",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 164,
-      "channel" : 2
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "pesuhuone",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 119,
-      "channel" : 3
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "kodinhoitohuone",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 230,
-      "channel" : 3
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "vaatehuone",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 176,
-      "channel" : 2
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "eteinen",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 60,
-      "channel" : 2
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "retain" : false
-  },
-  { "name" : "tuulikaappi",
-    "protocol" : 19,
-    "idMap" : {
-      "model" : "Nexus-TH",
-      "id" : 152,
-      "channel" : 2
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
     "retain" : false
   },
   { "name" : "etuovi",
@@ -242,6 +130,42 @@
       "door" : {
         "3" : "opened",
         "9" : "closed"
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : true
+  },
+  { "name" : "vajanovi",
+    "protocol" : 30,
+    "idMap" : {
+      "model" : "Generic-Remote",
+      "id" : 7139
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "115" : "opened",
+        "121" : "closed"
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : true
+  },
+  { "name" : "puuvajanovi",
+    "protocol" : 30,
+    "idMap" : {
+      "model" : "Generic-Remote",
+      "id" : 7931
+    },
+    "dataMap" : {
+      "door" : "cmd"
+    },
+    "translations" : {
+      "door" : {
+        "99" : "opened",
+        "105" : "closed"
       }
     },
     "repeatMask" : 500,
