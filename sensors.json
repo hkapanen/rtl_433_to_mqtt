@@ -170,5 +170,22 @@
     },
     "repeatMask" : 500,
     "retain" : true
+  },
+  { "name" : "palohälytin",
+    "protocol" : 86,
+    "idMap" : {
+      "model" : "Smoke-GS558",
+      "id" : 17331
+    },
+    "dataMap" : {
+      "smoke" : "learn"
+    },
+    "translations" : {
+      "smoke" : {
+        "0" : "detected"
+      }
+    },
+    "repeatMask" : 500,
+    "retain" : false
   }
 ]
