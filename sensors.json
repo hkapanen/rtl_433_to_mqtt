@@ -13,20 +13,6 @@
     "repeatMask" : 500,
     "retain" : false
   },
-  { "name" : "vesimittari",
-    "protocol" : 12,
-      "idMap" : {
-      "model" : "Oregon-THGR122N",
-      "id" : 87
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "repeatMask" : 500,
-    "retain" : false
-  },
   { "name" : "etuovi",
     "protocol" : 30,
     "idMap" : {
