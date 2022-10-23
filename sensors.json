@@ -1,18 +1,4 @@
 [
-  { "name" : "ulkona",
-    "protocol" : 12,
-    "idMap" : {
-      "model" : "Oregon-THGR968",
-      "id" : 8
-    },
-    "dataMap" : {
-      "temp" : "temperature_C",
-      "rhum" : "humidity",
-      "batt" : "battery_ok"
-    },
-    "repeatMask" : 500,
-    "retain" : false
-  },
   { "name" : "etuovi",
     "protocol" : 30,
     "idMap" : {
